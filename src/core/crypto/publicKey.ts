@@ -59,4 +59,13 @@ export abstract class AccountPublicKey extends PublicKey {
    * Get the authentication key associated with this public key
    */
   abstract authKey(): AuthenticationKey;
+
+  /**
+   * Get the account address from public key as a hex string with a 0x prefix.
+   *
+   * @returns The account address in hex format.
+   */
+  toAccountAddress(): Hex {
+    return this.authKey().bcsToHex().toString();
+  }
 }
